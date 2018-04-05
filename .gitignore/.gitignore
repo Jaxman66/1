@@ -1,0 +1,57 @@
+abstract class KaasaskantavSeade implements Comparable<KaasaskantavSeade>{
+    private String mudel;
+    private String staatus;
+    private int aku;
+
+    public KaasaskantavSeade(String mudel, String staatus, int aku) {
+        this.mudel = mudel;
+        this.staatus = staatus;
+        this.aku = aku;
+    }
+
+
+    public abstract int vähendaAkut();
+
+    public String getMudel() {
+        return mudel;
+    }
+
+    public String getStaatus() {
+        return staatus;
+    }
+
+    public int getAku() {
+        return aku;
+    }
+
+    public void setAku(int aku) {
+        this.aku = aku;
+    }
+
+    public boolean vajabLaadimist(){
+        if (aku<=15){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public int compareTo(KaasaskantavSeade o) {
+        if (getAku() > o.getAku()) {
+            return 1;
+        } else if (getAku() < o.getAku()) {
+            return -1;
+        } else {
+            return 0;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "KaasaskantavSeade{" +
+                "mudel='" + mudel + '\'' +
+                ", staatus='" + staatus + '\'' +
+                ", aku=" + aku +
+                '}';
+    }
+}
